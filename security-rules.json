@@ -1,0 +1,23 @@
+{
+    "rules": {
+        "acl": {
+          "$uid": {
+            ".read": "$uid == auth.uid",
+            ".write": "$uid == auth.uid"
+          }
+        },
+        "slides": {
+          ".read": true,
+          ".write": "root.child('users').child(root.child('acl').child(auth.uid).child('userKey').val()).child('isAdmin').val() == true"
+        },
+        "users": {
+          "$userKey": {
+            ".read": "$userKey == root.child('acl').child(auth.uid).child('userKey').val()",
+            ".write": "$userKey == root.child('acl').child(auth.uid).child('userKey').val()",
+            "isAdmin": {
+              ".write": false
+            }
+          }
+        }
+    }
+}
