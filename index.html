@@ -1,0 +1,86 @@
+<html lang="en" ng-app="SlidesApp">
+
+<head>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <meta name="viewport" content="initial-scale=1" />
+</head>
+
+<body layout="column" ng-controller="AppCtrl">
+    <md-toolbar layout="row">
+        <div class="md-toolbar-tools">
+            <md-button ng-click="toggleSidenav('left')" hide-gt-sm class="md-icon-button">
+                <md-icon aria-label="Menu" md-svg-icon="https://s3-us-west-2.amazonaws.com/s.cdpn.io/68133/menu.svg"></md-icon>
+            </md-button>
+            <h1>Slides App</h1>
+        </div>
+    </md-toolbar>
+    <div layout="row" flex>
+        <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+            <div layout="row">
+                <md-button class="md-secondary" flex ng-click="authObject.$unauth()" ng-show="user">
+                    Log Out
+                </md-button>
+            </div>
+        </md-sidenav>
+        <div layout="column" flex id="content">
+            <md-content layout="column" flex class="md-padding">
+                <div ng-if="!user" ng-controller="AuthCtrl">
+                    <md-whiteframe class="md-whiteframe-z0" layout="column" layout-align="center center" layout-padding layout-wrap>
+                        <md-button class="md-primary md-raised" ng-click="google()">
+                            Log in with Google
+                        </md-button>
+                    </md-whiteframe>
+                    <md-whiteframe class="md-whiteframe-z0" layout="row" layout-align="center center" layout-padding layout-wrap>
+                        <md-button class="md-primary md-raised" ng-click="facebook()">
+                            Log in with Facebook
+                        </md-button>
+                    </md-whiteframe>
+                    <md-whiteframe class="md-whiteframe-z1" layout="row" layout-padding layout-wrap>
+                        <h3>Login with Email and Password</h3>
+                        <form name="loginForm" style="width: 100%;">
+                            <md-input-container>
+                                <label for="login-email">Email</label>
+                                <input id="login-email" type="email" ng-model="loginUser.email" required>
+                            </md-input-container>
+                            <md-input-container flex>
+                                <label for="login-password">Password</label>
+                                <input id="login-password" type="password" ng-model="loginUser.password" required>
+                            </md-input-container>
+                            <div layout="row" layout-sm="column" layout-align="center space-between" layout-align-sm="center center">
+                                <div>
+                                    <md-button class="md-primary md-raised" ng-click="login(loginUser)" ng-disabled="loginForm.$invalid">
+                                        Log In
+                                    </md-button>
+                                </div>
+                                <div>
+                                    <md-button class="md-secondary md-raised" ng-click="register(loginUser)" ng-disabled="loginForm.$invalid">
+                                        Register
+                                    </md-button>
+                                </div>
+                            </div>
+                        </form>
+                    </md-whiteframe>
+                </div>
+            </md-content>
+        </div>
+    </div>
+    <!-- Angular Material Dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
+    <!-- Angular Material -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.js"></script>
+    <!-- Firebase -->
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase-debug.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
+    <!-- Environment Variables -->
+    <script src="scripts/env.js"></script>
+    <!-- Angular Controllers -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/slides.js"></script>
+</body>
+
+</html>

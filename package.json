@@ -1,0 +1,30 @@
+{
+  "name": "angularfire-slides",
+  "version": "1.0.0",
+  "description": "Angularfire slide app",
+  "main": "server.js",
+  "dependencies": {
+    "firebase": "^2.2.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/deltaepsilon/qv-angularfire-slides.git"
+  },
+  "keywords": [
+    "angularfire",
+    "slides",
+    "firebase",
+    "angular"
+  ],
+  "author": "Chris Esplin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deltaepsilon/qv-angularfire-slides/issues"
+  },
+  "homepage": "https://github.com/deltaepsilon/qv-angularfire-slides#readme"
+}
