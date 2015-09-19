@@ -1,5 +1,5 @@
 (function() {
-    var app = angular.module('SlidesApp', ['firebase', 'ngMaterial']);
+    var app = angular.module('SlidesApp', ['firebase', 'ngMaterial', 'ngSanitize']);
 
     app.constant('firebaseRoot', window.env.firebaseRoot);
 

@@ -4,6 +4,7 @@
   "description": "Angularfire slide app",
   "main": "server.js",
   "dependencies": {
+    "commonmark": "^0.22.0",
     "firebase": "^2.2.9"
   },
   "devDependencies": {},

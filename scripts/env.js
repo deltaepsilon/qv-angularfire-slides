@@ -3,7 +3,7 @@
         "firebaseRoot": "https://qv-angularfire-slide.firebaseio.com/"
     };
 
-    if (window) {
+    if (typeof window === 'object') {
         window.env = env;
     } else if (module && module.exports) {
         module.exports = env;
